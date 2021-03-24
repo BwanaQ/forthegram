@@ -4,8 +4,8 @@ from django.http import HttpResponse
 
 
 def home(request):
-    return HttpResponse('<h1> Home </h1>')
+    return render(request, 'blog/home.html')
 
 
 def about(request):
-    return HttpResponse('<h1>About</h1>')
+    return HttpResponse(request, 'blog/about.html')
