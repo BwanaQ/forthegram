@@ -1,5 +1,22 @@
-{% extends 'blog/base.html' %} 
-{% block content %}
-<h1>Home</h1>
-<i class="bi bi-alarm"></i>
+{% extends 'blog/base.html' %} {% block content %}
+<h1>
+  <span><i class="bi bi-alarm"></i></span>Home
+</h1>
+<div class="row">
+  {% for post in posts %}
+  <div class="card me-4" style="width: 18rem; padding: 0px">
+    <img src="..." class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title text-uppercase">{{ post.title }}</h5>
+      <p class="card-text">{{ post.content }}</p>
+    </div>
+    <div class="card-footer" style="margin: 0%">
+      <small class="text-muted">
+        By {{ post.author }} on {{ post.date_posted }}
+      </small>
+    </div>
+  </div>
+
+  {% endfor %}
+</div>
 {% endblock %}
