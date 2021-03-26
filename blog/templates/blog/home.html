@@ -1,22 +1,67 @@
-{% extends 'blog/base.html' %} {% block content %}
+{% extends 'blog/base.html' %} {% load static %} {% block content %}
 <h1>
   <span><i class="bi bi-alarm"></i></span>Home
 </h1>
 <div class="row">
-  {% for post in posts %}
-  <div class="card me-4" style="width: 18rem; padding: 0px">
-    <img src="..." class="card-img-top" alt="..." />
-    <div class="card-body">
-      <h5 class="card-title text-uppercase">{{ post.title }}</h5>
-      <p class="card-text">{{ post.content }}</p>
+  <div class="col-md-8">
+    {% for post in posts %}
+    <div class="card mb-5" style="width: 42rem; padding: 0px">
+      <div class="card-header">
+        <strong>{{ post.author }}</strong>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn float-end" data-bs-toggle="modal" data-bs-target="#exampleModal{{post.id}}">
+          . . .
+        </button>
+
+      </div>
+      <div class="card-body">
+        <img class="gram-img" src="{% static 'blog/pic.jpg'%}" />
+      </div>
+      <div class="card-footer" style="margin: 0%">
+        <small class="text-muted"> on {{ post.date_posted }} </small>
+      </div>
     </div>
-    <div class="card-footer" style="margin: 0%">
-      <small class="text-muted">
-        By {{ post.author }} on {{ post.date_posted }}
-      </small>
-    </div>
+
+
+        <!-- Modal -->
+        <div
+        class="modal fade"
+        id="exampleModal{{post.id}}"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body text-center">
+              <p><a href="#">Report</a></p>
+              <hr>
+              <p><a href="#">Unfollow</a></p>
+              <hr>
+              <p><a href="#">Go to post</a></p>
+              <hr>
+              <p><a href="#">Share to</a></p>
+              <hr>
+              <p><a href="#">Report</a></p>
+              <hr>
+              <p><a href="#">Copy Link</a></p>
+              <hr>
+              <p><a href="#">Embed</a></p>
+              <hr>
+              <p><a href="#">Cancel</a></p>
+              <hr>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="col-md-4">
+    <h1>sidebar</h1>
   </div>
 
-  {% endfor %}
+  </div>
 </div>
+
 {% endblock %}
