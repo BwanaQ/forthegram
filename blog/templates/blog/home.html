@@ -1,4 +1,4 @@
-{% extends 'blog/base.html' %} {% load static %} {% block content %}
+{% extends 'blog/base.html' %} {% load static %} {% load humanize %}{% block content %}
 <div class="row">
   <div class="col-md-8 col-sm-12">
     {% for post in posts %}
@@ -15,7 +15,7 @@
         <img class="gram-img" src="https://res.cloudinary.com/thinc/{{post.url}}" />
       </div>
       <div class="card-footer" style="margin: 0%">
-        <small class="text-muted"> on {{ post.timestamp }} </small>
+        <small class="text-muted">{{ post.timestamp| naturaltime }} </small>
       </div>
     </div>
 
