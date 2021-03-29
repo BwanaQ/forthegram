@@ -1,9 +1,6 @@
 {% extends 'blog/base.html' %} {% load static %} {% block content %}
-<h1>
-  <span><i class="bi bi-alarm"></i></span>Home
-</h1>
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-8 col-sm-12">
     {% for post in posts %}
     <div class="card mb-5" style="width: 42rem; padding: 0px">
       <div class="card-header">
@@ -31,10 +28,10 @@
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-sm">
           <div class="modal-content">
             <div class="modal-body text-center">
-              <p><a href="#">Report</a></p>
+              <p><a class=" no-underline" href="#">Report</a></p>
               <hr>
               <p><a href="#">Unfollow</a></p>
               <hr>
@@ -49,7 +46,6 @@
               <p><a href="#">Embed</a></p>
               <hr>
               <p><a href="#">Cancel</a></p>
-              <hr>
             </div>
   
           </div>
@@ -57,7 +53,7 @@
       </div>
     {% endfor %}
   </div>
-  <div class="col-md-4">
+  <div class="col-md-4 col-sm-12">
     <h1>sidebar</h1>
   </div>
 

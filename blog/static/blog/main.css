@@ -21,3 +21,6 @@ nav {
   width: 670px;
   height: auto;
 }
+.no-underline a {
+  text-decoration: none;
+}
