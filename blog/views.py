@@ -1,14 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Image, Comment
-from datetime import datetime
 
 
 def home(request):
-    now = datetime.now()
     context = {
-        'posts': Image.objects.all(),
-        'now': now
+        'posts': Image.objects.all()
     }
     return render(request, 'blog/home.html', context)
 
