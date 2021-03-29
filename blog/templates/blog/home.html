@@ -4,7 +4,7 @@
     {% for post in posts %}
     <div class="card mb-5" style="width: 42rem; padding: 0px">
       <div class="card-header">
-        <strong>{{ post.author }}</strong>
+        <strong>{{ post.creator }}</strong>
         <!-- Button trigger modal -->
         <button type="button" class="btn float-end" data-bs-toggle="modal" data-bs-target="#exampleModal{{post.id}}">
           . . .
@@ -12,10 +12,10 @@
 
       </div>
       <div class="card-body">
-        <img class="gram-img" src="{% static 'blog/pic.jpg'%}" />
+        <img class="gram-img" src="https://res.cloudinary.com/thinc/{{post.url}}" />
       </div>
       <div class="card-footer" style="margin: 0%">
-        <small class="text-muted"> on {{ post.date_posted }} </small>
+        <small class="text-muted"> on {{ post.timestamp }} </small>
       </div>
     </div>
 
