@@ -1,5 +1,9 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import (
+    ListView,
+    DetailView,
+    CreateView
+)
 from django.http import HttpResponse
 from .models import Image, Comment
 
@@ -20,6 +24,15 @@ class ImageListView(ListView):
 
 class ImageDetailView(DetailView):
     model = Image
+
+
+class ImageCreateView(CreateView):
+    model = Image
+    fields = ['title', 'caption', 'url']
+
+    def form_valid(self, form):
+        form.instance.creator = self.request.user
+        return super().form_valid(form)
 
 
 def about(request):
