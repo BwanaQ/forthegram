@@ -1,5 +1,4 @@
-{% load static %}
-{% load humanize %}
+{% load static %} {% load humanize %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -31,9 +30,9 @@
       crossorigin="anonymous"
     ></script>
     {% if title %}
-    <title>Blog | {{title}}</title>
+    <title>Forthegram | {{title}}</title>
     {% else %}
-    <title>Blog</title>
+    <title>Forthegram</title>
     {% endif %}
   </head>
   <body>
@@ -74,13 +73,25 @@
                   ></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#"><i class="far fa-paper-plane"></i></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#"
-                    ><i class="bi bi-heart"></i
+                  <a class="nav-link" href="#"
+                    ><i class="far fa-paper-plane"></i
                   ></a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#"><i class="bi bi-heart"></i></a>
+                </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'login' %}">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'register' %}">Register</a>
+                </li>
+                {% endif%}
               </ul>
               <form class="d-flex">
                 <input
@@ -99,15 +110,9 @@
       </header>
       <main class="flex-shrink-0" style="margin-top: 60px">
         <div class="container">
-          {% if messages %}
-            {% for message in messages %}
-              <div class="alert alert-{{ message.tags }}">
-                {{ message }}
-              </div>
-            {% endfor %}
-          {% endif %}
-          {% block content %} 
-          {% endblock %}
+          {% if messages %} {% for message in messages %}
+          <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+          {% endfor %} {% endif %} {% block content %} {% endblock %}
         </div>
       </main>
       <footer class="footer mt-auto py-3 bg-light">

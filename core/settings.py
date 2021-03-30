@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     # 3rd party apps
     'cloudinary',
+    'cloudinary_storage',
     'crispy_forms',
 
     # my apps
@@ -143,3 +144,5 @@ CLOUDINARY_STORAGE = {
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_REDIRECT_URL = 'blog-home'
