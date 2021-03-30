@@ -5,9 +5,16 @@
       <div class="card-header">
         <img class="profile-card-img" src="{{object.creator.profile.image.url}}" alt="profile picture"><strong class="ms-2">{{ object.creator }}</strong>
         <!-- Button trigger modal -->
-        <button type="button" class="btn float-end" data-bs-toggle="modal" data-bs-target="#exampleModal{{object.id}}">
-          . . .
-        </button>
+        <div class="float-end">
+          <a class="btn btn-primary btn-sm mt-1 mb-1 me-1" href="#">Add Comment</a>
+
+          {% if object.creator == user %}
+            <a class="btn btn-secondary btn-sm mt-1 mb-1 me-1" href=" {% url 'image-update' object.id %}">Update</a>
+            <a class="btn btn-danger btn-sm mt-1 mb-1 me-1" href=" {% url 'image-delete' object.id %}">Delete</a>
+          {% endif %}
+  
+        </div>
+
 
       </div>
       <div class="card-body">
@@ -17,42 +24,14 @@
         <small class="text-muted">{{ object.timestamp| naturaltime }} </small>
       </div>
     </div>
-
-
-        <!-- Modal -->
-        <div
-        class="modal fade"
-        id="exampleModal{{object.id}}"
-        tabindex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-sm">
-          <div class="modal-content">
-            <div class="modal-body text-center">
-              <p><a class=" no-underline" href="#">Report</a></p>
-              <hr>
-              <p><a href="#">Unfollow</a></p>
-              <hr>
-              <p><a href="#">Go to object</a></p>
-              <hr>
-              <p><a href="#">Share to</a></p>
-              <hr>
-              <p><a href="#">Report</a></p>
-              <hr>
-              <p><a href="#">Copy Link</a></p>
-              <hr>
-              <p><a href="#">Embed</a></p>
-              <hr>
-              <p><a href="#">Cancel</a></p>
-            </div>
-  
-          </div>
-        </div>
-      </div>
   </div>
   <div class="col-md-4 col-sm-12">
-    <h1>sidebar</h1>
+    <h1>Actions</h1>
+    <p><a class="btn btn-outline-primary mt-1 mb-1" href="#">Add Comment</a></p>
+      {% if object.creator == user %}
+        <p><a class="btn btn-outline-secondary mt-1 mb-1" href=" {% url 'image-update' object.id %}">Update</a></p>
+        <p><a class="btn btn-outline-danger mt-1 mb-1" href=" {% url 'image-delete' object.id %}">Delete</a></p>
+      {% endif %}
   </div>
 
   </div>
