@@ -69,3 +69,8 @@ body {
   border: 5px solid white;
   border-radius: 50%;
 }
+.profile-card-img {
+  max-width: 50px;
+  height: auto;
+  border-radius: 50%;
+}

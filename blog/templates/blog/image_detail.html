@@ -1,21 +1,20 @@
 {% extends 'blog/base.html' %} {% load static %} {% load humanize %}{% block content %}
 <div class="row">
   <div class="col-md-8 col-sm-12">
-    {% for post in posts %}
     <div class="card mb-5" style="width: 42rem; padding: 0px">
       <div class="card-header">
-        <img class="profile-card-img" src="{{post.creator.profile.image.url}}" alt="profile picture"><strong class="ms-2">{{ post.creator }}</strong>
+        <img class="profile-card-img" src="{{object.creator.profile.image.url}}" alt="profile picture"><strong class="ms-2">{{ object.creator }}</strong>
         <!-- Button trigger modal -->
-        <button type="button" class="btn float-end" data-bs-toggle="modal" data-bs-target="#exampleModal{{post.id}}">
+        <button type="button" class="btn float-end" data-bs-toggle="modal" data-bs-target="#exampleModal{{object.id}}">
           . . .
         </button>
 
       </div>
       <div class="card-body">
-        <img class="gram-img" src="{{post.url.url}}" />
+        <img class="gram-img" src="{{object.url.url}}" />
       </div>
       <div class="card-footer" style="margin: 0%">
-        <small class="text-muted">{{ post.timestamp| naturaltime }} </small>
+        <small class="text-muted">{{ object.timestamp| naturaltime }} </small>
       </div>
     </div>
 
@@ -23,7 +22,7 @@
         <!-- Modal -->
         <div
         class="modal fade"
-        id="exampleModal{{post.id}}"
+        id="exampleModal{{object.id}}"
         tabindex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
@@ -35,7 +34,7 @@
               <hr>
               <p><a href="#">Unfollow</a></p>
               <hr>
-              <p><a href="{% url 'image-detail' post.id %}">Go to post</a></p>
+              <p><a href="#">Go to object</a></p>
               <hr>
               <p><a href="#">Share to</a></p>
               <hr>
@@ -51,7 +50,6 @@
           </div>
         </div>
       </div>
-    {% endfor %}
   </div>
   <div class="col-md-4 col-sm-12">
     <h1>sidebar</h1>
