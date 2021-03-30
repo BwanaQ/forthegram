@@ -4,7 +4,7 @@
     {% for post in posts %}
     <div class="card mb-5" style="width: 42rem; padding: 0px">
       <div class="card-header">
-        <strong>{{ post.creator }}</strong>
+        <img style="max-width: 50px; height: auto; border-radius: 50%;" src="{{post.creator.profile.image.url}}" alt="profile picture"><strong class="ms-2">{{ post.creator }}</strong>
         <!-- Button trigger modal -->
         <button type="button" class="btn float-end" data-bs-toggle="modal" data-bs-target="#exampleModal{{post.id}}">
           . . .
