@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-md-8 col-sm-12">
     {% for post in posts %}
-    <div class="card mb-5" style="width: 42rem; padding: 0px">
+    <div class="card mb-5" style="padding: 0px">
       <div class="card-header">
         <img class="profile-card-img" src="{{post.creator.profile.image.url}}" alt="profile picture"><strong class="ms-2">{{ post.creator }}</strong>
         <!-- Button trigger modal -->
@@ -11,8 +11,9 @@
         </button>
 
       </div>
+      <img style="height: 100%;"src="{{post.url.url}}" />
+
       <div class="card-body">
-        <img class="gram-img" src="{{post.url.url}}" />
       </div>
       <div class="card-footer" style="margin: 0%">
         <small class="text-muted">{{ post.timestamp| naturaltime }} </small>
@@ -31,13 +32,11 @@
         <div class="modal-dialog modal-sm">
           <div class="modal-content">
             <div class="modal-body text-center">
-              <p><a href="#">Unfollow</a></p>
-              <hr>
-              <p><a href="{% url 'image-detail' post.id %}">Go to post</a></p>
-              <hr>
-              <p><a href="#">Copy Link</a></p>
-              <hr>
-              <p><a href="#">Cancel</a></p>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><a class ="muted" href="#">Unfollow</a></li>
+                <li class="list-group-item"><a href="{% url 'image-detail' post.id %}">Go to post</a></li>
+                <li class="list-group-item"><a href="#">Copy Link</a></li>
+              </ul>
             </div>
   
           </div>

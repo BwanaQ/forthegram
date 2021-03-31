@@ -1,7 +1,7 @@
 {% extends 'blog/base.html' %} {% load static %} {% load humanize %}{% block content %}
 <div class="row">
   <div class="col-md-8 col-sm-12">
-    <div class="card mb-5" style="width: 42rem; padding: 0px">
+    <div class="card mb-5" style="padding: 0px">
       <div class="card-header">
         <img class="profile-card-img" src="{{object.creator.profile.image.url}}" alt="profile picture"><strong class="ms-2">{{ object.creator }}</strong>
         <!-- Button trigger modal -->
@@ -17,8 +17,9 @@
 
 
       </div>
+      <img style="height: 100%;" src="{{object.url.url}}" />
+
       <div class="card-body">
-        <img class="gram-img" src="{{object.url.url}}" />
       </div>
       <div class="card-footer" style="margin: 0%">
         <small class="text-muted">{{ object.timestamp| naturaltime }} </small>
