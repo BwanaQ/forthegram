@@ -11,12 +11,20 @@
         </button>
 
       </div>
-      <img style="height: 100%;"src="{{post.url.url}}" />
+      <img style="height: 100%;" src="{{post.url.url}}" />
 
       <div class="card-body">
       </div>
       <div class="card-footer" style="margin: 0%">
         <small class="text-muted">{{ post.timestamp| naturaltime }} </small>
+      </br>
+        
+        {% for comment in post.comments.all %}
+        <img class="profile-card-img" src="{{comment.creator.profile.image.url}}" alt="profile picture"><strong class="ms-2">{{ comment.creator }}</strong>
+        <p class="small-text">{{comment.body }}</p>
+        <small class = "text-muted">{{comment.timestamp| naturaltime }}</p>
+        <hr>
+        {% endfor %}
       </div>
     </div>
 
@@ -33,7 +41,6 @@
           <div class="modal-content">
             <div class="modal-body text-center">
               <ul class="list-group list-group-flush">
-                <li class="list-group-item"><a class ="muted" href="#">Unfollow</a></li>
                 <li class="list-group-item"><a href="{% url 'image-detail' post.id %}">Go to post</a></li>
                 <li class="list-group-item"><a href="#">Copy Link</a></li>
               </ul>

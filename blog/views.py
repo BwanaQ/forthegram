@@ -9,6 +9,7 @@ from django.views.generic import (
 )
 from django.http import HttpResponse
 from .models import Image, Comment
+from django.shortcuts import render, get_object_or_404
 
 
 class ImageListView(ListView):
@@ -21,6 +22,11 @@ class ImageListView(ListView):
 
 class ImageDetailView(DetailView):
     model = Image
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['comment'] = Comment.objects. all()
+        return context
 
 
 class ImageCreateView(LoginRequiredMixin, CreateView):
@@ -56,7 +62,3 @@ class ImageDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         if self.request.user == image.creator:
             return True
         return False
-
-
-def about(request):
-    return render(request, 'blog/about.html', {'title': 'About'})

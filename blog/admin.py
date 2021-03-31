@@ -4,5 +4,15 @@ from django.contrib import admin
 from .models import Image, Comment
 
 
-admin.site.register(Image)
+class CommentInline(admin.StackedInline):
+    model = Comment
+
+
+class ImageAdmin(admin.ModelAdmin):
+    inlines = [
+        CommentInline,
+    ]
+
+
+admin.site.register(Image, ImageAdmin)
 admin.site.register(Comment)

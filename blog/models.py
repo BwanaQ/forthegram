@@ -22,6 +22,14 @@ class Image(models.Model):
 class Comment(models.Model):
     title = models.CharField(max_length=100)
     body = models.TextField()
-    creator = models.ForeignKey(User, on_delete=models.CASCADE)
-    image = models.ForeignKey(Image, on_delete=models.CASCADE)
+    creator = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='commentor')
+    image = models.ForeignKey(
+        Image, on_delete=models.CASCADE, related_name='comments')
     timestamp = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('image-detail', kwargs={'pk': self.pk})

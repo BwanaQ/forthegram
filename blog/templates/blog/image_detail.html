@@ -27,12 +27,12 @@
     </div>
   </div>
   <div class="col-md-4 col-sm-12">
-    <h1>Actions</h1>
-    <p><a class="btn btn-outline-primary mt-1 mb-1" href="#">Add Comment</a></p>
-      {% if object.creator == user %}
-        <p><a class="btn btn-outline-secondary mt-1 mb-1" href=" {% url 'image-update' object.id %}">Update</a></p>
-        <p><a class="btn btn-outline-danger mt-1 mb-1" href=" {% url 'image-delete' object.id %}">Delete</a></p>
-      {% endif %}
+    <h1>comments</h1>
+    {% if comments %}
+      {% for comment in comments %}
+      {{ comment.title }}
+      {% endfor %}
+    {% endif %} 
   </div>
 
   </div>
