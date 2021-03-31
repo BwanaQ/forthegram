@@ -1,13 +1,17 @@
-# GALLERYA
+# FOR THE GRAM
 
-A Gallery app built on Django with a robust backend for adding photos, a search function and sorts images by categories
+For the gram is simply an instagram clone where users can log in , share photos, like and comment about them
+
+## Live Demo
+
+A live working demo can be found [here](https://hunja-insta.herokuapp.com/)
 
 ## Getting Started
 
 - clone this repo
 
 ```
-$ git clone https://github.com/BwanaQ/galleria.git
+$ git clone https://github.com/BwanaQ/forthegram.git
 ```
 
 ### Prerequisites
@@ -42,7 +46,7 @@ $ source env/bin/activate
 (env)$ pip install -r requirements.txt
 ```
 
-5. rename .env copy to .env then run this command
+5. create a .env file, populate it then run this command
 
 ```
 (env) $ source .env
@@ -74,4 +78,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 - Thanks to [Toptal](https://www.toptal.com/developers/gitignore/api/django) for a beautiful .gitignore file
-- Inspiration - My Technical Mentor Kelvin Onkundi and The Olympians Team MC38
+- Inspiration - The Most awesome Katana, Pipers and The Olympians Team MC38
